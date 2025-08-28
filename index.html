@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Humidor Collection: At-home embroidery and sewing services in Charleston, SC. Custom designs for clothing, upholstery, and more from our unique boat-based studio.">
+    <meta name="keywords" content="embroidery Charleston SC, custom sewing, nautical embroidery, pocket tees, hats, bags, upholstery">
+    <title>The Humidor Collection - Custom Embroidery & Sewing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #F0F8FF; /* Light blueish background */
+            color: #001F3F; /* Navy text */
+            overflow-x: hidden;
+        }
+        header {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(to bottom, #008080, #001F3F); /* Teal to navy */
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 0;
+            z-index: 2;
+            animation: fadeInDown 1s ease-out;
+        }
+        header p {
+            font-size: 1.5em;
+            margin: 10px 0;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%232E8B57" fill-opacity="0.8" d="M0,288L48,272C96,256,192,224,288,229.3C384,235,480,277,576,277.3C672,277,768,235,864,213.3C960,192,1056,192,1152,197.3C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') repeat-x;
+            animation: wave 10s linear infinite;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1440px); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        nav {
+            background-color: #2E8B57; /* Seafoam green */
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #FFD700; /* Yellow */
+            transform: scale(1.1);
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #about {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        #services {
+            background: linear-gradient(to bottom, #F0F8FF, #FFFFFF);
+        }
+        #services h2 {
+            text-align: center;
+        }
+        #services ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        #services li {
+            background: #008080; /* Teal */
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        #services li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        #services li::before {
+            content: '\f135'; /* Font Awesome rocket for fun, or change to anchor \f13d */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 2em;
+            display: block;
+            margin-bottom: 10px;
+            color: #FFD700;
+            transition: transform 0.3s;
+        }
+        #services li:hover::before {
+            transform: rotate(360deg);
+        }
+        #gallery {
+            text-align: center;
+        }
+        #gallery .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        #gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        #gallery img:hover {
+            transform: scale(1.05);
+        }
+        #contact {
+            background: #001F3F; /* Navy */
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+        }
+        #contact a {
+            color: #FFD700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        #contact a:hover {
+            color: #2E8B57;
+        }
+        footer {
+            background: #2E8B57;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5em; }
+            header p { font-size: 1.2em; }
+            nav a { margin: 0 10px; font-size: 0.9em; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="waves"></div>
+        <h1>The Humidor Collection</h1>
+        <p>Custom Embroidery & Sewing from Our Boat-Home in Charleston, SC – Where Every Stitch Tells a Story!</p>
+    </header>
+    <nav>
+        <a href="#about"><i class="fas fa-anchor"></i> About</a>
+        <a href="#services"><i class="fas fa-tools"></i> Services</a>
+        <a href="#gallery"><i class="fas fa-images"></i> Gallery</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>The Humidor Collection is an at-home local embroidery and sewing service, operated right from our unique boat-home in Charleston, SC. We offer everything from simple pocket tee embroidery to custom curtains for your home, with prices ranging from $10 to $300. Whether it's personalized apparel or bespoke upholstery, we bring a nautical flair and modern creativity to every project.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li><strong>Pocket Tees</strong>: Fun, custom embroidery on tees for that personal splash!</li>
+            <li><strong>Polos</strong>: Sharp designs on polos with a beachy vibe.</li>
+            <li><strong>Bags & Hats</strong>: Embroider your gear with unique nautical motifs.</li>
+            <li><strong>Any Type of Clothing</strong>: From jackets to jeans, we customize with flair.</li>
+            <li><strong>Custom Upholstery</strong>: Tailored curtains, cushions, and more – perfect for homes or boats!</li>
+        </ul>
+    </section>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Dive into our work! Add your images here later – for now, placeholders:</p>
+        <div class="gallery-grid">
+            <img src="https://via.placeholder.com/300x200?text=Embroidered+Tee+Adventure" alt="Embroidered Pocket Tee">
+            <img src="https://via.placeholder.com/300x200?text=Custom+Hat+Wave" alt="Custom Hat">
+            <img src="https://via.placeholder.com/300x200?text=Upholstery+Sail" alt="Custom Upholstery">
+            <!-- Add more as needed -->
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Email: <a href="mailto:carteremily12@gmail.com">carteremily12@gmail.com</a></p>
+        <p>Phone: 864-510-9022</p>
+        <p>Instagram: <a href="https://instagram.com/emilykc__" target="_blank">@emilykc__</a></p>
+        <p>Location: Based in Charleston, SC – Available online and locally.</p>
+    </section>
+    <footer>
+        &copy; 2025 The Humidor Collection. All rights reserved.
+    </footer>
+</body>
+</html>
